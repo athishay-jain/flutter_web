@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      scrollBehavior: MyCustomScrollBehavior(),
+      //scrollBehavior: SmoothScrollBehavior(),
       title: 'Flutter landing page',
      theme: ThemeData(
        primarySwatch: Colors.blue,
@@ -24,15 +24,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-class MyCustomScrollBehavior extends MaterialScrollBehavior {
+class SmoothScrollBehavior extends MaterialScrollBehavior {
   @override
   Set<PointerDeviceKind> get dragDevices => {
     PointerDeviceKind.touch,
     PointerDeviceKind.mouse,
   };
-
-  @override
-  ScrollPhysics getScrollPhysics(BuildContext context) {
-    return const BouncingScrollPhysics(); // or try BouncingScrollPhysics
-  }
 }

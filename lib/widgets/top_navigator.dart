@@ -1,15 +1,24 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TopNavigator extends StatefulWidget {
-  const TopNavigator({super.key});
+  final void Function(String selection) onSelected;
+
+  TopNavigator({super.key, required this.onSelected});
 
   @override
   State<TopNavigator> createState() => _TopNavigatorState();
 }
 
 class _TopNavigatorState extends State<TopNavigator> {
+  void _launchURL(String url) async {
+    final uri = Uri.parse(url);
+    if (!await launchUrl(uri)) {
+      throw 'Could not launch $url';
+    }
+  }
   int isHover = 0;
 
   @override
@@ -36,135 +45,155 @@ class _TopNavigatorState extends State<TopNavigator> {
                 ),
               ),
               Spacer(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: MouseRegion(
-                  onEnter: (_) {
-                    isHover = 1;
-                    setState(() {});
-                  },
-                  onExit: (_) {
-                    isHover = 0;
-                    setState(() {});
-                  },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Home",
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                      AnimatedContainer(
-                        width: isHover == 1 ? 49 : 0,
-                        height: 4,
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeIn,
-                        decoration: BoxDecoration(
-                          color: Color(0xffEE6C4D),
-                          borderRadius: BorderRadius.circular(10),
+              GestureDetector(
+                onTap: () {
+                  widget.onSelected("home");
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: MouseRegion(
+                    onEnter: (_) {
+                      isHover = 1;
+                      setState(() {});
+                    },
+                    onExit: (_) {
+                      isHover = 0;
+                      setState(() {});
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Home",
+                          style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
-                      ),
-                    ],
+                        AnimatedContainer(
+                          width: isHover == 1 ? 49 : 0,
+                          height: 4,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeIn,
+                          decoration: BoxDecoration(
+                            color: Color(0xffEE6C4D),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: MouseRegion(
-                  onEnter: (_) {
-                    isHover = 2;
-                    setState(() {});
-                  },
-                  onExit: (_) {
-                    isHover = 0;
-                    setState(() {});
-                  },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "About Me",
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                      AnimatedContainer(
-                        width: isHover == 2 ? 75 : 0,
-                        height: 4,
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeIn,
-                        decoration: BoxDecoration(
-                          color: Color(0xffEE6C4D),
-                          borderRadius: BorderRadius.circular(10),
+              GestureDetector(
+                onTap: () {
+                  widget.onSelected("about");
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: MouseRegion(
+                    onEnter: (_) {
+                      isHover = 2;
+                      setState(() {});
+                    },
+                    onExit: (_) {
+                      isHover = 0;
+                      setState(() {});
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "About Me",
+                          style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
-                      ),
-                    ],
+                        AnimatedContainer(
+                          width: isHover == 2 ? 75 : 0,
+                          height: 4,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeIn,
+                          decoration: BoxDecoration(
+                            color: Color(0xffEE6C4D),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: MouseRegion(
-                  onEnter: (_) {
-                    isHover = 3;
-                    setState(() {});
-                  },
-                  onExit: (_) {
-                    isHover = 0;
-                    setState(() {});
-                  },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Works",
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                      AnimatedContainer(
-                        width: isHover == 3 ? 50 : 0,
-                        height: 4,
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeIn,
-                        decoration: BoxDecoration(
-                          color: Color(0xffEE6C4D),
-                          borderRadius: BorderRadius.circular(10),
+              GestureDetector(
+                onTap: () {
+                  widget.onSelected("work");
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: MouseRegion(
+                    onEnter: (_) {
+                      isHover = 3;
+                      setState(() {});
+                    },
+                    onExit: (_) {
+                      isHover = 0;
+                      setState(() {});
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Works",
+                          style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
-                      ),
-                    ],
+                        AnimatedContainer(
+                          width: isHover == 3 ? 50 : 0,
+                          height: 4,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeIn,
+                          decoration: BoxDecoration(
+                            color: Color(0xffEE6C4D),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: MouseRegion(
-                  onEnter: (_) {
-                    isHover = 4;
-                    setState(() {});
-                  },
-                  onExit: (_) {
-                    isHover = 0;
-                    setState(() {});
-                  },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Contact",
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                      AnimatedContainer(
-                        width: isHover == 4 ? 62 : 0,
-                        height: 4,
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeIn,
-                        decoration: BoxDecoration(
-                          color: Color(0xffEE6C4D),
-                          borderRadius: BorderRadius.circular(10),
+              GestureDetector(
+                onTap: () {
+                  widget.onSelected("contact");
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: MouseRegion(
+                    onEnter: (_) {
+                      isHover = 4;
+                      setState(() {});
+                    },
+                    onExit: (_) {
+                      isHover = 0;
+                      setState(() {});
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Contact",
+                          style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
-                      ),
-                    ],
+                        AnimatedContainer(
+                          width: isHover == 4 ? 62 : 0,
+                          height: 4,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeIn,
+                          decoration: BoxDecoration(
+                            color: Color(0xffEE6C4D),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -172,13 +201,15 @@ class _TopNavigatorState extends State<TopNavigator> {
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 30),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _launchURL("https://docs.google.com/document/d/1ODBQcc24UUeCRFQPVDmDX_uDPPk1UvOG/edit?usp=sharing&ouid=103964338836377224892&rtpof=true&sd=true");
+                  },
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                     backgroundColor: Color(0xffEE6C4D),
                   ),
                   child: Text(
-                    "Get in touch",
+                    "Download CV",
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),

@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HeroScreen extends StatelessWidget {
   const HeroScreen({super.key});
-
+  void _launchURL(String url) async {
+    final uri = Uri.parse(url);
+    if (!await launchUrl(uri)) {
+      throw 'Could not launch $url';
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final height=MediaQuery.of(context).size.height;
@@ -49,7 +55,9 @@ class HeroScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _launchURL("https://docs.google.com/document/d/1ODBQcc24UUeCRFQPVDmDX_uDPPk1UvOG/edit?usp=sharing&ouid=103964338836377224892&rtpof=true&sd=true");
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xffEE6C4D),
                     padding: EdgeInsets.symmetric(vertical: 20, horizontal: 60),
@@ -58,7 +66,7 @@ class HeroScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  child: Text("Get in touch", style: TextStyle(fontSize: 25)),
+                  child: Text("Download CV", style: TextStyle(fontSize: 25)),
                 ),
               ],
             ),
