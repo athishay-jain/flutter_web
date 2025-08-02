@@ -8,6 +8,7 @@ class HeroScreen extends StatelessWidget {
     final height=MediaQuery.of(context).size.height;
     return Center(
       child: Container(
+        width: MediaQuery.of(context).size.width,
         height:height/1.1,
         color: Color(0xff3D5A80),
         child: Row(

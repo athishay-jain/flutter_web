@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web/Screns/Views/about_me.dart';
+import 'package:flutter_web/Screns/Views/contact_screen.dart';
 import 'package:flutter_web/Screns/Views/hero_screen.dart';
 import 'package:flutter_web/Screns/Views/works_screen.dart';
+import 'package:flutter_web/widgets/footer.dart';
 import 'package:flutter_web/widgets/top_navigator.dart';
 
 class LandingScreen extends StatelessWidget {
@@ -17,12 +19,16 @@ class LandingScreen extends StatelessWidget {
                 SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [HeroScreen(), AboutMe(),WorksScreen()],
+                    children: [
+                      HeroScreen(),
+                      AboutMe(),
+                      WorksScreen(),
+                      ContactScreen(),
+                      Footer(),
+                    ],
                   ),
                 ),
-                Align(
-                    alignment: Alignment.topCenter,
-                    child: TopNavigator())
+                Align(alignment: Alignment.topCenter, child: TopNavigator()),
               ],
             ),
           ),
