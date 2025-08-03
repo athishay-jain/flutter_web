@@ -198,7 +198,7 @@ class _ContactScreenState extends State<ContactScreen> {
               child: Padding(
                 padding: EdgeInsets.only(left: width / 10),
                 child: Text(
-                  "Lets Connect",
+                  "Let's Connect",
                   style: TextStyle(
                     fontSize: 29,
                     fontWeight: FontWeight.bold,

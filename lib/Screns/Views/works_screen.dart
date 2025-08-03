@@ -144,7 +144,7 @@ class _WorksScreenState extends State<WorksScreen> {
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        SizedBox(height: cardHeight / 25),
+                        SizedBox(height: cardHeight / 50),
                         Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal: cardWidth / 15,
@@ -180,12 +180,12 @@ class _WorksScreenState extends State<WorksScreen> {
                                 scale: hoverIcon == index ?iconNum==1? 1.4 : 1:1,
                                 child: Image.asset(
                                   "assets/images/icons/github.png",
-                                  scale: 15,
+                                  height: cardWidth/12,
                                   color: Colors.white,
                                 ),
                               ),
                             ),
-                            SizedBox(width: cardWidth / 15),
+                            SizedBox(width: cardWidth / 18),
                             MouseRegion(
                               onEnter: (_) {
                                 hoverIcon = index;
@@ -202,7 +202,7 @@ class _WorksScreenState extends State<WorksScreen> {
                                 scale: hoverIcon == index ?iconNum==2? 1.4 : 1:1,
                                 child: Image.asset(
                                   "assets/images/icons/linkedin.png",
-                                  scale: 15,
+                                 height: cardWidth/13,
                                 ),
                               ),
                             ),
@@ -223,7 +223,7 @@ class _WorksScreenState extends State<WorksScreen> {
                                 scale: hoverIcon == index ? iconNum==3?1.4 : 1:1,
                                 child: Image.asset(
                                   "assets/images/icons/logo.png",
-                                  scale: 15,
+                                  height: cardWidth/13,
                                 ),
                               ),
                             ),

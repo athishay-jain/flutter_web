@@ -21,7 +21,7 @@ class Footer extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Padding(
+          /*Padding(
             padding: EdgeInsets.only(left: width / 25),
             child: Text(
               "Athishay.dev",
@@ -31,9 +31,9 @@ class Footer extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-          ),
+          ),*/
           Text(
-            "©2025 Athishay.dev - All rights reserved",
+            "©2025 Athishay.dev - Built with Flutter",
             style: TextStyle(fontSize: 16, color: Colors.white),
           ),
           Row(
