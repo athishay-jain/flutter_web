@@ -16,7 +16,7 @@ class AboutMe extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              FlutterLogo(size: 200),
+            Image.asset("assets/images/Developer_activity.png",scale: 5,),
               SizedBox(
                 width: 600,
                 child: Column(
