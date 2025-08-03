@@ -1,51 +1,103 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class AboutMe extends StatelessWidget {
-   const AboutMe({super.key});
+  const AboutMe({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
+    final height = MediaQuery
+        .of(context)
+        .size
+        .height;
+    final width = MediaQuery
+        .of(context)
+        .size
+        .width;
+    final isMobile = MediaQuery
+        .of(context)
+        .size
+        .width < 800;
     return Container(
-      height: height/1.1,
+      //  height: height/1.1,
       color: Color(0xff293241),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(height: height / 9),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-            Image.asset("assets/images/Developer_activity.png",scale: 5,),
-              SizedBox(
-                width: 600,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "About Me",
-                      style: TextStyle(fontSize: 29, color: Colors.white),
-                    ),
-                    SizedBox(height: 5),
-                    Container(
-                      width: double.infinity,
-                      height: 3,
-                      decoration: BoxDecoration(
-                        color: Color(0xffEE6C4D),
-                        borderRadius: BorderRadius.circular(10),
+          SizedBox(height: width / 25),
+          AnimatedSwitcher(duration: Duration(milliseconds: 600),
+            switchOutCurve: Curves.easeInOut,
+            switchInCurve: Curves.easeInOut,
+            child: isMobile ? Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  "assets/images/svg/undraw_feeling-proud_tdos.svg",
+                  height: width / 2,),
+                SizedBox(
+                  width:width/1.2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "About Me",
+                        style: TextStyle(fontSize: width/20, color: Colors.white),
                       ),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      "My passion for building websites started since 2013 and since then i have helped companies around the world build amazing websites and products that create real value for the business and users. \n \nI enjoy solving problems with clean scalable solutions and I also have a genuine passion for inspiring design.\n \nI am a fullstack developer focusing on core frontend and backend technologies which include HTML, CSS, Javascript, React and other core languages",
-                      style: TextStyle(fontSize: 18, color: Colors.white),
-                    ),
-                  ],
+                      SizedBox(height: 5),
+                      Container(
+                        width: double.infinity,
+                        height: 3,
+                        decoration: BoxDecoration(
+                          color: Color(0xffEE6C4D),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        "I’m a passionate Flutter developer with experience building cross-platform mobile and web apps using Flutter & Dart.\n \n I enjoy solving problems with elegant UI/UX and have worked on projects ranging from weather apps to e-commerce solutions.",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-          Spacer(),
+                SizedBox(height: 20,)
+              ],
+            ) : Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SvgPicture.asset(
+                  "assets/images/svg/undraw_feeling-proud_tdos.svg",
+                  height: width / 5.2,),
+                SizedBox(
+                  width: 520,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "About Me",
+                        style: TextStyle(fontSize: 29, color: Colors.white),
+                      ),
+                      SizedBox(height: 5),
+                      Container(
+                        width: double.infinity,
+                        height: 3,
+                        decoration: BoxDecoration(
+                          color: Color(0xffEE6C4D),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        "I’m a passionate Flutter developer with experience building cross-platform mobile and web apps using Flutter & Dart.\n \n I enjoy solving problems with elegant UI/UX and have worked on projects ranging from weather apps to e-commerce solutions.",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),),
+
+          //Spacer(),
           Container(
             width: double.infinity,
             height: height / 2.9,
@@ -54,7 +106,7 @@ class AboutMe extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Projects i have been worked",
+                  "Skills / Tech Stack",
                   style: TextStyle(fontSize: 29, color: Colors.white),
                 ),
                 SizedBox(height: 10),
