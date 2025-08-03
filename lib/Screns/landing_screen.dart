@@ -41,23 +41,20 @@ class LandingScreen extends StatelessWidget {
               children: [
                 WebSmoothScroll(
                   controller: scrollController,
-                  child: SingleChildScrollView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    controller: scrollController,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        HeroScreen(key: homeKey ,onSelected: (selection) {
-                         if(selection=="work"){
-                           scrollToSection(workKey);
-                         }
-                        },),
-                        AboutMe(key: aboutKey),
-                        WorksScreen(key: workKey),
-                        ContactScreen(key: contactKey),
-                        const Footer(),
-                      ],
-                    ),
+                  child: ListView(
+physics: NeverScrollableScrollPhysics(),
+                     controller: scrollController,                              //   mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      HeroScreen(key: homeKey ,onSelected: (selection) {
+                       if(selection=="work"){
+                         scrollToSection(workKey);
+                       }
+                      },),
+                      AboutMe(key: aboutKey),
+                      WorksScreen(key: workKey),
+                      ContactScreen(key: contactKey),
+                      const Footer(),
+                    ],
                   ),
                 ),
                 Align(

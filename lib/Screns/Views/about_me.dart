@@ -56,7 +56,7 @@ int hoverIndex=-1;
                                 fontSize: width / 20,
                                 color: Colors.white,
                               ),
-                            ),
+                            ).animate().fadeIn(),
                             SizedBox(height: 5),
                             Container(
                               width: double.infinity,
@@ -98,7 +98,7 @@ int hoverIndex=-1;
                                 fontSize: 29,
                                 color: Colors.white,
                               ),
-                            ).animate().fadeIn(),
+                            ).animate().then(delay: 600.ms).fadeIn(curve: Curves.easeInOut),
                             SizedBox(height: 5),
                             Container(
                               width: double.infinity,
@@ -115,7 +115,9 @@ int hoverIndex=-1;
                                 fontSize: 18,
                                 color: Colors.white,
                               ),
-                            ),
+                            ).animate()
+                                .then(delay: 700.ms)
+                                .fadeIn(),
                           ],
                         ),
                       ),
