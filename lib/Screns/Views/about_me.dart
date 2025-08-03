@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class AboutMe extends StatefulWidget {
@@ -97,7 +98,7 @@ int hoverIndex=-1;
                                 fontSize: 29,
                                 color: Colors.white,
                               ),
-                            ),
+                            ).animate().fadeIn(),
                             SizedBox(height: 5),
                             Container(
                               width: double.infinity,

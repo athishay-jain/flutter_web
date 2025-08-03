@@ -8,7 +8,7 @@ class WorksScreen extends StatefulWidget {
 }
 
 class _WorksScreenState extends State<WorksScreen> {
-  int hoverIndex = 0;
+  int hoverIndex = -1;
   int hoverIcon = 0;
   int iconNum=0;
 

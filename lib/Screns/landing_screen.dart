@@ -47,7 +47,11 @@ class LandingScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        HeroScreen(key: homeKey),
+                        HeroScreen(key: homeKey ,onSelected: (selection) {
+                         if(selection=="work"){
+                           scrollToSection(workKey);
+                         }
+                        },),
                         AboutMe(key: aboutKey),
                         WorksScreen(key: workKey),
                         ContactScreen(key: contactKey),

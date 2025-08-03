@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:flutter_animate/flutter_animate.dart';
 class HeroScreen extends StatelessWidget {
-  const HeroScreen({super.key});
+  final void Function(String selection) onSelected;
+   HeroScreen({super.key,required this.onSelected});
 
   void _launchURL(String url) async {
     final uri = Uri.parse(url);
@@ -50,7 +51,7 @@ class HeroScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
+                      ).animate().fadeIn().slide().scale().then(delay: 300.ms).shake(),
                     ),
                     SizedBox(height: 20),
                     SizedBox(
@@ -94,9 +95,7 @@ class HeroScreen extends StatelessWidget {
                         SizedBox(width: 10),
                         OutlinedButton(
                           onPressed: () {
-                            _launchURL(
-                              "https://docs.google.com/document/d/1ODBQcc24UUeCRFQPVDmDX_uDPPk1UvOG/edit?usp=sharing&ouid=103964338836377224892&rtpof=true&sd=true",
-                            );
+                            onSelected("work");
                           },
                           style: OutlinedButton.styleFrom(
                             side: BorderSide(
@@ -171,7 +170,7 @@ class HeroScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          ),
+                          ).animate().fadeIn(curve: Curves.easeInOut),
                         ),
                         SizedBox(height: 20),
                         SizedBox(
@@ -179,7 +178,7 @@ class HeroScreen extends StatelessWidget {
                           child: Text(
                             "Hey, I’m Athishay Jain. Passionate Flutter developer with a strong foundation in cross-platform mobile app development, UI/UX     design, and project execution. Built and deployed real-world apps with modern, responsive interfaces and backend integrations.",
                             style: TextStyle(fontSize: 25, color: Colors.white),
-                          ),
+                          ).animate().then(delay: 400.ms).fadeIn(curve: Curves.easeInOut),
                         ),
                         SizedBox(height: 20),
                         Row(
@@ -209,9 +208,7 @@ class HeroScreen extends StatelessWidget {
                             SizedBox(width: 20),
                             OutlinedButton(
                               onPressed: () {
-                                _launchURL(
-                                  "https://docs.google.com/document/d/1ODBQcc24UUeCRFQPVDmDX_uDPPk1UvOG/edit?usp=sharing&ouid=103964338836377224892&rtpof=true&sd=true",
-                                );
+                                onSelected("work");
                               },
                               style: OutlinedButton.styleFrom(
                                 padding: EdgeInsets.symmetric(
@@ -247,14 +244,14 @@ class HeroScreen extends StatelessWidget {
                               color: Color(0x5E293241),
                               shape: BoxShape.circle,
                             ),
-                          ),
+                          ).animate().fadeIn(curve: Curves.easeInOut,duration: Duration(milliseconds: 600)),
                         ),
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: Image.asset(
                             "assets/images/hero_image.png",
                             width: width / 4,
-                          ),
+                          ).animate().slide(curve: Curves.easeInOut,end: Offset.zero,begin: Offset(0, 1),duration: Duration(milliseconds: 600)),
                         ),
                       ],
                     ),
