@@ -21,7 +21,8 @@ class LandingScreen extends StatelessWidget {
     final context = key.currentContext;
     if (context != null) {
       final box = context.findRenderObject() as RenderBox;
-      final offset = box.localToGlobal(Offset.zero).dy + scrollController.offset;
+      final offset =
+          box.localToGlobal(Offset.zero).dy + scrollController.offset;
 
       scrollController.animateTo(
         offset,
@@ -39,17 +40,20 @@ class LandingScreen extends StatelessWidget {
           Center(
             child: Stack(
               children: [
-                WebSmoothScroll(
+                SingleChildScrollView(
                   controller: scrollController,
-                  child: ListView(
-physics: NeverScrollableScrollPhysics(),
-                     controller: scrollController,                              //   mainAxisAlignment: MainAxisAlignment.center,
+                  child: Column(
+
+                      mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      HeroScreen(key: homeKey ,onSelected: (selection) {
-                       if(selection=="work"){
-                         scrollToSection(workKey);
-                       }
-                      },),
+                      HeroScreen(
+                        key: homeKey,
+                        onSelected: (selection) {
+                          if (selection == "work") {
+                            scrollToSection(workKey);
+                          }
+                        },
+                      ),
                       AboutMe(key: aboutKey),
                       WorksScreen(key: workKey),
                       ContactScreen(key: contactKey),
