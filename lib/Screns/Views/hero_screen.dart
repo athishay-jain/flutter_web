@@ -136,7 +136,7 @@ class HeroScreen extends StatelessWidget {
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: Image.asset(
-                            "assets/images/hero_image.png",
+                            "assets/images/hero_image.webp",
                             scale: 15,
                           ),
                         ),
@@ -249,7 +249,7 @@ class HeroScreen extends StatelessWidget {
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: Image.asset(
-                            "assets/images/hero_image.png",
+                            "assets/images/hero_image.webp",
                             width: width / 4,
                           ).animate().slide(curve: Curves.easeInOut,end: Offset.zero,begin: Offset(0, 1),duration: Duration(milliseconds: 600)),
                         ),
