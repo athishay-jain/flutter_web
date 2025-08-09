@@ -31,7 +31,7 @@ class _TopNavigatorState extends State<TopNavigator> {
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: Container(
           //  color: Color(0x7b3d5a80),
-          height: 80,
+          height: isMobile?60: 80,
           width: double.infinity,
           child: AnimatedSwitcher(
             duration: Duration(milliseconds: 500),
@@ -52,7 +52,9 @@ class _TopNavigatorState extends State<TopNavigator> {
                       Spacer(),
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 30),
-                        child: Icon(Icons.menu,color: Colors.white,size: 30,),
+                        child: IconButton(icon: Icon(Icons.menu,color: Colors.white,size: 30,),onPressed: (){
+                          Scaffold.of(context).openEndDrawer();
+                        },),
 
                       ),
                     ],

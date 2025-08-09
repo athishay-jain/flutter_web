@@ -50,7 +50,7 @@ int hoverIndex=-1;
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            SelectableText(
                               "About Me",
                               style: TextStyle(
                                 fontSize: width / 20,
@@ -67,7 +67,7 @@ int hoverIndex=-1;
                               ),
                             ),
                             SizedBox(height: 5),
-                            Text(
+                            SelectableText(
                               "I’m a passionate Flutter developer with experience building cross-platform mobile and web apps using Flutter & Dart.\n \n I enjoy solving problems with elegant UI/UX and have worked on projects ranging from weather apps to e-commerce solutions.",
                               style: TextStyle(
                                 fontSize: 18,
@@ -92,7 +92,7 @@ int hoverIndex=-1;
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            SelectableText(
                               "About Me",
                               style: TextStyle(
                                 fontSize: 29,
@@ -109,7 +109,7 @@ int hoverIndex=-1;
                               ),
                             ),
                             SizedBox(height: 5),
-                            Text(
+                            SelectableText(
                               "I’m a passionate Flutter developer with experience building cross-platform mobile and web apps using Flutter & Dart.\n \n I enjoy solving problems with elegant UI/UX and have worked on projects ranging from weather apps to e-commerce solutions.",
                               style: TextStyle(
                                 fontSize: 18,
@@ -134,7 +134,7 @@ int hoverIndex=-1;
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: 20,),
-                Text(
+                SelectableText(
                   "Skills / Tech Stack",
                   style: TextStyle(fontSize: 29, color: Colors.white),
                 ),
@@ -154,7 +154,7 @@ int hoverIndex=-1;
                   itemCount: images.length,
                   padding: EdgeInsets.symmetric(horizontal: width/5),
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200,
+                    maxCrossAxisExtent: isMobile?150:200,
                     crossAxisSpacing: 50,
                     childAspectRatio: 4/3,
                     mainAxisSpacing: 30,

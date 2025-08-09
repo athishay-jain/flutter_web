@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //scrollBehavior: SmoothScrollBehavior(),
-      title: 'Flutter landing page',
+      title: 'Athishay.dev',
      theme: ThemeData(
        primarySwatch: Colors.blue,
      ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class WorksScreen extends StatefulWidget {
@@ -11,6 +12,29 @@ class WorksScreen extends StatefulWidget {
 }
 
 class _WorksScreenState extends State<WorksScreen> {
+  void _launchURL(String url) async {
+    final uri = Uri.parse(url);
+    if (!await launchUrl(uri)) {
+      throw 'Could not launch $url';
+    }
+  }
+  List<Map<String,dynamic>>projects=[
+    {
+      "image":"assets/images/projects/expense_app_banner.jpeg",
+      "title":"Expo",
+      "desc":"Created a complete Expense Tracker App using Flutter and Firebase! Features include transaction filters, analytics with graphs, user authentication, profile settings, and expense limits. Upcoming additions: push notifications and PDF export. Built during WsCube Tech’s Flutter course",
+      "git":"https://github.com/athishay-jain/Expense_app",
+      "linkedin":"https://www.linkedin.com/posts/athishay-jain_flutter-firebase-mobiledevelopment-activity-7352314472167788544-UwP7?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFC1nawBBBaUx_X5-kNGpma1Ah2GQe5Mzxc",
+      "playstore":null,
+    },{
+      "image":"assets/images/projects/sky_cast_app_banner.jpeg",
+      "title":"SkyCast",
+      "desc":"🌤️ Built SkyCast, a sleek Flutter weather app using OpenWeather API! Features real-time updates, hourly/4-day forecasts, dynamic UI, smooth city search, and animations. Open-source, customizable, and powered by REST API for a minimal yet rich experience.",
+      "git":"https://github.com/athishay-jain/weather_application",
+      "linkedin":"https://www.linkedin.com/posts/athishay-jain_flutter-mobileapp-weatherapp-activity-7355254943697567745-QVW0?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFC1nawBBBaUx_X5-kNGpma1Ah2GQe5Mzxc",
+      "playstore":null,
+    },
+  ];
   int hoverIndex = -1;
   int hoverIcon = 0;
   int iconNum=0;
@@ -56,7 +80,7 @@ class _WorksScreenState extends State<WorksScreen> {
               padding: EdgeInsets.symmetric(horizontal: width / 9),
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: 5,
+              itemCount: projects.length,
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 400,
                 childAspectRatio: 3 / 4,
@@ -113,8 +137,8 @@ class _WorksScreenState extends State<WorksScreen> {
                             margin: EdgeInsets.only(top: 30, left: 20, right: 20),
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: NetworkImage(
-                                  "https://media.licdn.com/dms/image/v2/D4E22AQHhTD5Isd6Inw/feedshare-shrink_2048_1536/B4EZhMdYjiGwAo-/0/1753629429404?e=1756944000&v=beta&t=x4VyHe0-b07ODE2JNBkrxSMr4Vu8On_TX-Uk8y1NybE",
+                                image: AssetImage(
+                                  projects[index]["image"],
                                 ),
                                 fit: BoxFit.cover,
                               ),
@@ -125,7 +149,7 @@ class _WorksScreenState extends State<WorksScreen> {
                           Padding(
                             padding: EdgeInsets.only(left: cardWidth / 15),
                             child: Text(
-                              "Project Name",
+                              projects[index]["title"],
                               style: TextStyle(
                                 fontSize: cardWidth / 17.04,
                                 color: Colors.white,
@@ -138,7 +162,7 @@ class _WorksScreenState extends State<WorksScreen> {
                               horizontal: cardWidth / 15,
                             ),
                             child: Text(
-                              "Built My Own Weather App – SkyCast⛅Excited to share a clean, minimal and feature-rich weather app built using Flutter + OpenWeather APIs! and used flutter for frontend",
+                             projects[index]["desc"],
                               style: TextStyle(
                                 fontSize: cardWidth / 26.625,
                                 color: Colors.white,
@@ -167,69 +191,81 @@ class _WorksScreenState extends State<WorksScreen> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               SizedBox(width: cardWidth / 15),
-                              MouseRegion(
-                                onEnter: (_) {
-                                  hoverIcon = index;
-                                  iconNum=1;
-                                  setState(() {});
+                              GestureDetector(
+                                onTap: (){
+                                  _launchURL(projects[index]['git']);
                                 },
-                                onExit: (_) {
-                                  hoverIcon = -1;
-                                  iconNum=0;
-                                  setState(() {});
-                                },
-                                child: AnimatedScale(
-                                  duration: Duration(milliseconds: 300),
-                                  scale: hoverIcon == index ?iconNum==1? 1.4 : 1:1,
-                                  child: Image.asset(
-                                    "assets/images/icons/github.png",
-                                    height: cardWidth/12,
-                                    color: Colors.white,
+                                child: MouseRegion(
+                                  onEnter: (_) {
+                                    hoverIcon = index;
+                                    iconNum=1;
+                                    setState(() {});
+                                  },
+                                  onExit: (_) {
+                                    hoverIcon = -1;
+                                    iconNum=0;
+                                    setState(() {});
+                                  },
+                                  child: AnimatedScale(
+                                    duration: Duration(milliseconds: 300),
+                                    scale: hoverIcon == index ?iconNum==1? 1.4 : 1:1,
+                                    child: Image.asset(
+                                      "assets/images/icons/github.png",
+                                      height: cardWidth/12,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
                               SizedBox(width: cardWidth / 18),
-                              MouseRegion(
-                                onEnter: (_) {
-                                  hoverIcon = index;
-                                  iconNum=2;
-                                  setState(() {});
+                              GestureDetector(
+                                onTap: (){
+                                  _launchURL(projects[index]['linkedin']);
                                 },
-                                onExit: (_) {
-                                  hoverIcon = -1;
-                                  iconNum=0;
-                                  setState(() {});
-                                },
-                                child: AnimatedScale(
-                                  duration: Duration(milliseconds: 300),
-                                  scale: hoverIcon == index ?iconNum==2? 1.4 : 1:1,
-                                  child: Image.asset(
-                                    "assets/images/icons/linkedin.png",
-                                    height: cardWidth/13,
+                                child: MouseRegion(
+                                  onEnter: (_) {
+                                    hoverIcon = index;
+                                    iconNum=2;
+                                    setState(() {});
+                                  },
+                                  onExit: (_) {
+                                    hoverIcon = -1;
+                                    iconNum=0;
+                                    setState(() {});
+                                  },
+                                  child: AnimatedScale(
+                                    duration: Duration(milliseconds: 300),
+                                    scale: hoverIcon == index ?iconNum==2? 1.4 : 1:1,
+                                    child: Image.asset(
+                                      "assets/images/icons/linkedin.png",
+                                      height: cardWidth/13,
+                                    ),
                                   ),
                                 ),
                               ),
                               SizedBox(width: cardWidth / 15),
-                              MouseRegion(
-                                onEnter: (_) {
-                                  hoverIcon = index;
-                                  iconNum=3;
-                                  setState(() {});
-                                },
-                                onExit: (_) {
-                                  hoverIcon = -1;
-                                  iconNum=0;
-                                  setState(() {});
-                                },
-                                child: AnimatedScale(
-                                  duration: Duration(milliseconds: 300),
-                                  scale: hoverIcon == index ? iconNum==3?1.4 : 1:1,
-                                  child: Image.asset(
-                                    "assets/images/icons/logo.png",
-                                    height: cardWidth/13,
-                                  ),
-                                ),
-                              ),
+                             Visibility(
+                                 visible: projects[index]['playstore']!=null,
+                                 child:  MouseRegion(
+                               onEnter: (_) {
+                                 hoverIcon = index;
+                                 iconNum=3;
+                                 setState(() {});
+                               },
+                               onExit: (_) {
+                                 hoverIcon = -1;
+                                 iconNum=0;
+                                 setState(() {});
+                               },
+                               child: AnimatedScale(
+                                 duration: Duration(milliseconds: 300),
+                                 scale: hoverIcon == index ? iconNum==3?1.4 : 1:1,
+                                 child: Image.asset(
+                                   "assets/images/icons/logo.png",
+                                   height: cardWidth/13,
+                                 ),
+                               ),
+                             ))
                             ],
                           ),
                         ],

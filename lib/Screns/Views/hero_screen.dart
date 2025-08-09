@@ -42,7 +42,7 @@ class HeroScreen extends StatelessWidget {
                           ),
                           children: [
                             TextSpan(
-                              text: "Create your apps",
+                              text: "Create your apps in",
                               style: TextStyle(color: Colors.white),
                             ),
                             TextSpan(
@@ -56,7 +56,7 @@ class HeroScreen extends StatelessWidget {
                     SizedBox(height: 20),
                     SizedBox(
                       width: width / 1.2,
-                      child: Text(
+                      child: SelectableText(
                         "Hey, I’m Athishay Jain. Passionate Flutter developer with a strong foundation in cross-platform mobile app development, UI/UX     design, and project execution. Built and deployed real-world apps with modern, responsive interfaces and backend integrations.",
                         style: TextStyle(
                           fontSize: width / 23 > 20 ? 20 : width / 23,
@@ -175,7 +175,7 @@ class HeroScreen extends StatelessWidget {
                         SizedBox(height: 20),
                         SizedBox(
                           width: 600,
-                          child: Text(
+                          child: SelectableText(
                             "Hey, I’m Athishay Jain. Passionate Flutter developer with a strong foundation in cross-platform mobile app development, UI/UX     design, and project execution. Built and deployed real-world apps with modern, responsive interfaces and backend integrations.",
                             style: TextStyle(fontSize: 25, color: Colors.white),
                           ).animate().then(delay: 400.ms).fadeIn(curve: Curves.easeInOut),

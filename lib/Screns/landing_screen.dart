@@ -35,6 +35,60 @@ class LandingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: Drawer(
+        width: 200,
+        backgroundColor: Color(0xff293241),
+        child: ListView(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20
+              ),
+              decoration: const BoxDecoration(color: Colors.blue),
+              child: Center(child: const Text("Menu", style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold))),
+            ),
+            ListTile(
+              title: const Text(
+                "Home",
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                scrollToSection(homeKey);
+              },
+            ),
+            ListTile(
+              title: const Text(
+                "About",
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                scrollToSection(aboutKey);
+              },
+            ),
+            ListTile(
+              title: const Text(
+                "Work",
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                scrollToSection(workKey);
+              },
+            ),
+            ListTile(
+              title: const Text(
+                "Contact",
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                scrollToSection(contactKey);
+              },
+            ),
+          ],
+        ),
+      ),
       body: Stack(
         children: [
           Center(
@@ -43,8 +97,7 @@ class LandingScreen extends StatelessWidget {
                 SingleChildScrollView(
                   controller: scrollController,
                   child: Column(
-
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       HeroScreen(
                         key: homeKey,
