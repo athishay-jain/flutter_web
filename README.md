@@ -1,16 +1,45 @@
-# flutter_web
+# My Portfolio Website
 
-A new Flutter project.
+A responsive portfolio website built with **Flutter Web**, showcasing my work, skills, and contact information.  
+Live at: [https://athishay.web.app](https://athishay.web.app)
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
+- **Responsive Design** – Works on desktop, tablet, and mobile
+- **Smooth Scrolling Navigation**
+- **Animated Sections**
+- **Contact Form**
+- **Customizable Theme**
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 📸 Preview
+![Portfolio Screenshot](screenshot.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🛠️ Built With
+- [Flutter](https://flutter.dev/) – UI toolkit for building natively compiled applications
+- [Firebase Hosting](https://firebase.google.com/products/hosting) – Fast and secure hosting
+- Dart – Programming language for Flutter
+
+---
+
+## 📦 Installation & Setup
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/portfolio.git
+cd portfolio
+
+# Get dependencies
+flutter pub get
+
+# Run in debug mode
+flutter run -d chrome
+
+# Build for web
+flutter build web
+
+# Deploy to Firebase Hosting
+firebase deploy
