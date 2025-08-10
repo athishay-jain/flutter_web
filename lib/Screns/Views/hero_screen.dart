@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 class HeroScreen extends StatelessWidget {
+
   final void Function(String selection) onSelected;
    HeroScreen({super.key,required this.onSelected});
 
@@ -20,7 +21,7 @@ class HeroScreen extends StatelessWidget {
     return Center(
       child: Container(
         width: MediaQuery.of(context).size.width,
-        height: isMobile ? height / 1.1 : height / 1.1,
+        height: MediaQuery.of(context).size.height>945?600:height/1.1,
         color: Color(0xff3D5A80),
         child: AnimatedSwitcher(
           duration: Duration(milliseconds: 500),
@@ -51,7 +52,7 @@ class HeroScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ).animate().fadeIn().slide().scale().then(delay: 300.ms).shake(),
+                      ).animate().fadeIn(curve: Curves.easeInOut),
                     ),
                     SizedBox(height: 20),
                     SizedBox(
@@ -135,9 +136,11 @@ class HeroScreen extends StatelessWidget {
                         ),
                         Align(
                           alignment: Alignment.bottomCenter,
-                          child: Image.asset(
-                            "assets/images/hero_image.webp",
-                            scale: 15,
+                          child: RepaintBoundary(
+                            child: Image.asset(
+                              "assets/images/hero_image.webp",
+                              scale: 5,
+                            ),
                           ),
                         ),
                       ],

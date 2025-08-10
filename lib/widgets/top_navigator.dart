@@ -40,14 +40,7 @@ class _TopNavigatorState extends State<TopNavigator> {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(left: width / 25),
-                        child: Text(
-                          "Athishay.dev",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
+                        child: Image.asset("assets/images/logos/athishay.dev_logo_dark.png",scale: 10,)
                       ),
                       Spacer(),
                       Padding(
@@ -63,14 +56,7 @@ class _TopNavigatorState extends State<TopNavigator> {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(left: width / 25),
-                        child: Text(
-                          "Athishay.dev",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
+                        child:Image.asset("assets/images/logos/athishay.dev_logo_dark.png",scale: 6,)
                       ),
                       Spacer(),
                       GestureDetector(

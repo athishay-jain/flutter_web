@@ -1,9 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_web/Screns/landing_screen.dart';
 
 void main() {
+  debugRepaintRainbowEnabled =true;
   runApp(const MyApp());
 }
 
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //scrollBehavior: SmoothScrollBehavior(),
-      title: 'Athishay.dev',
+      title: "Athishay Jain - Portfolio Website",
      theme: ThemeData(
        primarySwatch: Colors.blue,
      ),

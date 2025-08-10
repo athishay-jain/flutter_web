@@ -50,7 +50,7 @@ class _WorksScreenState extends State<WorksScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: height / 15),
+          SizedBox(height: MediaQuery.of(context).size.height>945?40:height / 15),
           Padding(
             padding: EdgeInsets.only(left: width / 10),
             child: Text(
@@ -74,7 +74,7 @@ class _WorksScreenState extends State<WorksScreen> {
               ),
             ),
           ),
-          SizedBox(height: height / 15),
+          SizedBox(height: MediaQuery.of(context).size.height>945?40:height / 15),
           AnimationLimiter(
             child: GridView.builder(
               padding: EdgeInsets.symmetric(horizontal: width / 9),
@@ -91,9 +91,6 @@ class _WorksScreenState extends State<WorksScreen> {
                 builder: (context, constraints) {
                   final cardHeight = constraints.maxHeight;
                   final cardWidth = constraints.maxWidth;
-                  print(
-                    "the size at full of card height :$cardHeight,card Width :$cardWidth",
-                  );
                   return MouseRegion(
                     onEnter: (_) {
                       hoverIndex = index;
@@ -276,7 +273,7 @@ class _WorksScreenState extends State<WorksScreen> {
               ),)))
             ),
           ),
-          SizedBox(height: height / 15),
+          /*SizedBox(height: height / 15),
           Center(
             child: OutlinedButton(
               onPressed: () {},
@@ -296,7 +293,7 @@ class _WorksScreenState extends State<WorksScreen> {
                 ),
               ),
             ),
-          ),
+          ),*/
           SizedBox(height: width/25,)
         ],
       ),

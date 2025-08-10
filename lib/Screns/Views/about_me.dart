@@ -68,7 +68,7 @@ int hoverIndex=-1;
                             ),
                             SizedBox(height: 5),
                             SelectableText(
-                              "I’m a passionate Flutter developer with experience building cross-platform mobile and web apps using Flutter & Dart.\n \n I enjoy solving problems with elegant UI/UX and have worked on projects ranging from weather apps to e-commerce solutions.",
+                              "I’m Athishay Jain, a passionate Flutter developer who creates cross-platform apps for mobile, web, and desktop. I specialize in building high-performance, responsive, and visually appealing applications with clean architecture. My work includes UI/UX implementation, backend integration with Firebase and REST APIs, and solving complex problems with elegant solutions. I believe in writing clean, maintainable code and delivering apps that are both functional and delightful to use. Outside of coding, I explore new tech trends, work on side projects, and constantly improve my skills to stay ahead in the fast-moving world of technology.",
                               style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.white,
@@ -110,7 +110,7 @@ int hoverIndex=-1;
                             ),
                             SizedBox(height: 5),
                             SelectableText(
-                              "I’m a passionate Flutter developer with experience building cross-platform mobile and web apps using Flutter & Dart.\n \n I enjoy solving problems with elegant UI/UX and have worked on projects ranging from weather apps to e-commerce solutions.",
+                              "I’m Athishay Jain, a passionate Flutter developer who creates cross-platform apps for mobile, web, and desktop. I specialize in building high-performance, responsive, and visually appealing applications with clean architecture. My work includes UI/UX implementation, backend integration with Firebase and REST APIs, and solving complex problems with elegant solutions. I believe in writing clean, maintainable code and delivering apps that are both functional and delightful to use. Outside of coding, I explore new tech trends, work on side projects, and constantly improve my skills to stay ahead in the fast-moving world of technology.",
                               style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.white,

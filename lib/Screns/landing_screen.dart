@@ -34,6 +34,7 @@ class LandingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('the height of the canvas is ${MediaQuery.of(context).size.height}');
     return Scaffold(
       endDrawer: Drawer(
         width: 200,
@@ -43,7 +44,7 @@ class LandingScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20
               ),
-              decoration: const BoxDecoration(color: Colors.blue),
+              decoration: const BoxDecoration(color: Color(0xffEE6C4D)),
               child: Center(child: const Text("Menu", style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold))),
             ),
             ListTile(
